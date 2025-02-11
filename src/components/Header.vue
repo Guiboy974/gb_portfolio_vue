@@ -51,7 +51,7 @@
     </div>
 
    <!-- experience et technos --> 
-    <section class="bg-black flex flex-col md:flex-row justify-center items-center">
+    <section class="bg-black flex flex-col md:flex-row justify-center items-center m-3 rounded-lg">
         <div class="w-1/4 flex flex-col text-center justify-center md:align-center">
             <h2 class="font-bold text-xl">EXP</h2>
             <p>{{experience}}</p>

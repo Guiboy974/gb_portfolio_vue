@@ -8,22 +8,22 @@
             <form ref="form" @submit.prevent="sendEmail" class="m-4">
                 <div class="flex items-center justify-between space-x-4">
                     <label for="nomPrenom">Nom Prenom :</label>
-                    <input class="rounded bg-white grow invalid:border-red-600 focus:border-sky-500" type="text" name="name" id="nomPrenom" required>
+                    <input class="rounded bg-white grow text-black" type="text" name="name" id="nomPrenom" required>
                 </div>
                 <br>
                 <div class="flex items-center justify-between space-x-4">
                     <label for="entreprise">Entreprise :</label>
-                    <input class="rounded bg-white grow" type="text" name="enterprise" id="entreprise">
+                    <input class="rounded bg-white grow text-black" type="text" name="enterprise" id="entreprise">
                 </div>
                 <br>
                 <div class="flex items-center justify-between space-x-4">
                     <label for="email">Email :</label>
-                    <input class="rounded bg-white grow" type="email" name="mail" id="email" required>
+                    <input class="rounded bg-white grow text-black" type="email" name="mail" id="email" required>
                 </div>
                 <br>
                 <div class="flex items-center justify-between space-x-4">
                     <label for="message">Message :</label>
-                    <textarea class="rounded bg-white grow" name="messages" id="message" required></textarea>
+                    <textarea class="rounded bg-white grow text-black" name="messages" id="message" required></textarea>
                 </div>
                 <div class="flex items-center justify-center m-4">
                     <button class="rounded-xl bg-teal-800 p-2 hover:bg-cyan-900" type="submit">Envoyer</button>
