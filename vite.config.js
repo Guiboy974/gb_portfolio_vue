@@ -14,6 +14,11 @@ export default defineConfig({
     tailwindcss(),
 
   ],
+  build: {
+    commonjsOptions: {
+      esmExternals: true 
+   }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

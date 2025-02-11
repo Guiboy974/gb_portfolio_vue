@@ -28,13 +28,13 @@
         <article class="relative flex justify-center mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
             id="projects">
 
-            <div v-for="(project, index) in projects" :key="index"
-                 class="projectElement grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                <article class="group grid">
+            <div v-for="(projets, index) in data" :key="index"
+                 class="projectElement grid grid-cols-1 gap-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                <article class="group grid m-3">
                     <img class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
-                        src="#" alt="{{project.title}}">
-                    <h3 class="mt-4 text-center self-center text-lg font-medium text-gray-700">{{projets.title}}</h3>
-                    <a class="mt-1 text-center text-lg text-gray-900 justify-self-center" href="{{projets.link}}">lien
+                        :src="projets.image" :alt="projets.title">
+                    <h3 class="mt-4 text-center self-center text-lg font-medium text-gray-700">{{ projets.title }}</h3>
+                    <a class="mt-1 text-center text-lg text-gray-900 justify-self-center" :href="projets.link">lien
                         GitHub</a>
                 </article>
             </div>
@@ -49,39 +49,7 @@
     </section>
 
     <!-- form contact -->
-    <section class="mb-5 grid justify-center">
-        <h3 id="contact"
-            class="text-xl font-semibold m-2 font-serif flex justify-center text-teal-100 hover:underline underline-offset-4 hover:font-bold hover:text-teal-200">
-            Contact</h3>
-        <div class="grid justify-items-center sm:border sm:p-6 rounded-2xl">
-            <form action="#" method="post" class="m-4">
-                <div class="flex items-center justify-between space-x-4">
-                    <label for="nomPrenom">Nom Prenom :</label>
-                    <input type="text" name="name" id="nomPrenom">
-                </div>
-                <br>
-                <div class="flex items-center justify-between space-x-4">
-                    <label for="entreprise">Entreprise :</label>
-                    <input type="text" name="enterprise" id="entreprise">
-                </div>
-                <br>
-                <div class="flex items-center justify-between space-x-4">
-                    <label for="email">Email :</label>
-                    <input type="email" name="mail" id="email">
-                </div>
-                <br>
-                <div class="flex items-center justify-between space-x-4">
-                    <label for="telephone">Téléphone :</label>
-                    <input type="number" name="phoneNumber" id="telephone">
-                </div>
-                <br>
-                <div class="flex items-center justify-between space-x-4">
-                    <label for="message">Message :</label>
-                    <textarea name="messages" id="message"></textarea>
-                </div>
-            </form>
-        </div>
-    </section>
+   <ContactForm></ContactForm>
 
     <div class="flex justify-center m-2">
         <a href="#haut">
@@ -95,10 +63,22 @@
 </template>
 
 <script setup>
+import ContactForm from './ContactForm.vue'
+import { ref, onMounted } from 'vue'
 
-import ref from 'vue'
+const data = ref([]);
 
-const response = await fetch("projects.json");
-const projects = await response.json();
+onMounted(() => {
+    fetch('../src/assets/projects.json')
+        .then(response => response.json())
+        .then(jsonData => {
+            console.log(jsonData);
+            data.value = jsonData;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+
 
 </script>
