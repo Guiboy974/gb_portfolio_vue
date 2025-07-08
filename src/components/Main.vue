@@ -24,9 +24,9 @@ Aujourd’hui, j’accompagne entreprises et particuliers dans la création de l
             id="projects">
 
             <div v-for="(projets, index) in projects" :key="index"
-                 class="projectElement grid grid-cols-1 gap-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                 class="projectElement grid grid-cols-1 gap-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 xl:gap-x-8">
                 <article class="group grid m-3">
-                    <img class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
+                    <img class="aspect-square w-xl rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
                         :src="projets.img" :alt="projets.title" @click="openModal(projets.img)" style="cursor:pointer">
                     <h3 class="mt-4 text-center self-center text-lg font-medium text-gray-700">{{ projets.title }}</h3>
                     <a class="mt-1 text-center text-lg text-gray-900 justify-self-center" :href="projets.link">lien
