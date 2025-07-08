@@ -48,7 +48,10 @@ app.get(/^\/(?!api).*/, (req, res) => {
 });
 
 // Lancer le serveur
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+if (!PORT) {
+  throw new Error('PORT non défini par Render.');
+}
 app.listen(PORT, () => {
   console.log(`🚀 Backend + Frontend disponible sur le port ${PORT}`);
 });
