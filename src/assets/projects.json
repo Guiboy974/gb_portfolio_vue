@@ -1,11 +1,11 @@
 [
         {
-            "img": "./icons/pizzeria.png",
+            "img": "../src/components/icons/pizzeria.png",
             "title": "App Web pizzeria (commande en ligne)",
             "link": "https://github.com/Guiboy974/ecf_pizzeria"
         },
         {
-            "img": "./images/4085078.jpg",
+            "img": "../src/components/icons/baniere.jpg",
             "title": "projet2",
             "link": "https://github.com/Guiboy974"
         }

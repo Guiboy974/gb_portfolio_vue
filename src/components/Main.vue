@@ -5,18 +5,13 @@
             class="text-xl font-semibold p-4 font-serif flex justify-center text-teal-300 hover:underline underline-offset-4 hover:font-bold hover:text-teal-500">
             A propos</h3>
         <div class="mx-2 px-4 lg:mx-8 z-10 text-black">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium nihil distinctio autem quam amet
-                ratione ipsam earum commodi dicta accusamus, assumenda sapiente? Aliquid atque natus enim similique
-                nostrum ullam voluptates.
-                Quasi quaerat quo eum at molestias reprehenderit omnis! Error cum voluptas animi necessitatibus
-                corporis. Tenetur porro expedita, quibusdam nobis atque illo voluptatibus ut culpa ex, neque
-                adipisci sit architecto. Dolore.
-                Doloremque enim beatae, est ad quos nesciunt! Neque natus dolore quis voluptas quos cupiditate cum
-                voluptate ducimus repellendus aliquam ex atque doloribus officia perspiciatis eius placeat minima,
-                facilis quisquam dolor!
-                Architecto repudiandae non odit blanditiis laboriosam explicabo quis nobis dolores nisi recusandae
-                expedita iste at, ullam ducimus possimus praesentium sequi eius earum nulla! Nulla corporis magni
-                aperiam ipsum cupiditate beatae!</p>
+            <p class="text-lg font-medium text-center"> Après plusieurs années dans l’armée de terre, j’ai choisi de suivre ma passion pour les nouvelles technologies et de me reconvertir dans le développement web. Curieux et motivé, j’ai retrouvé dans ce métier le goût du challenge et la satisfaction de résoudre des problèmes concrets.
+<br>
+Aujourd’hui, j’accompagne entreprises et particuliers dans la création de leurs outils numériques. Sérieux et impliqué, je mets mon expérience et ma rigueur au service de vos projets.
+<br>
+À la recherche d’un développeur motivé et investi ? Contactez-moi et concrétisons ensemble vos idées. </p>
+
+
         </div>
     </section>
 
@@ -28,22 +23,27 @@
         <article class="relative flex justify-center mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
             id="projects">
 
-            <div v-for="(projets, index) in data" :key="index"
+            <div v-for="(projets, index) in projects" :key="index"
                  class="projectElement grid grid-cols-1 gap-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 <article class="group grid m-3">
                     <img class="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
-                        :src="projets.image" :alt="projets.title">
+                        :src="projets.img" :alt="projets.title" @click="openModal(projets.img)" style="cursor:pointer">
                     <h3 class="mt-4 text-center self-center text-lg font-medium text-gray-700">{{ projets.title }}</h3>
                     <a class="mt-1 text-center text-lg text-gray-900 justify-self-center" :href="projets.link">lien
                         GitHub</a>
+                    <p class="mt-1 text-center text-sm text-gray-500">{{ projets.techno }}</p>
                 </article>
             </div>
 
             <!-- The Modal -->
-            <div id="myModal" class="modal flex flex-col hidden absolute top-10 m-auto w-md-3/4 z-10">
-                <span class="close text-4xl w-full text-right">&times;</span>
-                <img class="modal-content w-full block" id="imgProj">
-            </div>
+           <div v-if="showModal" class="modal flex flex-col absolute top-10 m-auto w-md-3/4 z-10 bg-white rounded shadow-lg">
+    <span
+      class="close absolute top-2 right-4 text-4xl text-gray-700 cursor-pointer z-20"
+      @click="closeModal"
+      aria-label="Fermer la fenêtre"
+    >&times;</span>
+    <img class="modal-content w-full block" :src="modalImg" alt="Aperçu projet">
+</div>
         </article>
 
     </section>
@@ -66,19 +66,51 @@
 import ContactForm from './ContactForm.vue'
 import { ref, onMounted } from 'vue'
 
-const data = ref([]);
+const projects = ref([]);
 
-onMounted(() => {
-    fetch('../src/assets/projects.json')
-        .then(response => response.json())
-        .then(jsonData => {
-            console.log(jsonData);
-            data.value = jsonData;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+onMounted(async () => {
+  try {
+    // Mets ici l’URL de ton backend, en local ou en production
+    const response = await fetch('http://localhost:3000/api/notion');
+    const data = await response.json();
+
+
+   // Adaptation de la structure Notion à tes propriétés Vue
+    projects.value = data.results.map(page => ({
+        
+      title:
+        page.properties.Projets?.title &&
+        page.properties.Projets.title.length > 0
+          ? page.properties.Projets.title[0].plain_text
+          : "Sans titre",
+   
+      img:
+        page.properties.Images?.rich_text &&
+        page.properties.Images.rich_text.length > 0
+          ? page.properties.Images.rich_text[0].plain_text.trim()
+          : "",
+      link: page.properties.GitHub?.url || "#",
+      techno:
+        page.properties.Techno?.rich_text &&
+        page.properties.Techno.rich_text.length > 0
+          ? page.properties.Techno.rich_text.map(r => r.plain_text).join(' ')
+          : "",
+    }));
+    console.log(projects.value);
+  } catch (error) {
+    console.error(error);
+  }
 });
 
+const showModal = ref(false);
+const modalImg = ref("");
+function openModal(img) {
+  modalImg.value = img;
+  showModal.value = true;
+}
+function closeModal() {
+  showModal.value = false;
+  modalImg.value = "";
+}
 
 </script>

@@ -41,12 +41,12 @@
     <div class="baniere img-fluid grid w-full h-96 content-center bg-cover bg-no-repeat">
         <div>
             <h1 class="text-4xl font-extrabold m-4 p-4 font-serif md:my-12 md:mx-4"><span
-                    class="bg-clip-text text-transparent bg-orange-400">Guillaume Boyer</span>
+                    class="bg-clip-text text-transparent bg-orange-500">Guillaume Boyer</span>
             </h1>
         </div>
         <div class="justify-self-end">
-            <h3 class="text-3xl font-bold m-4 p-4 font-serif md:my-12 md:mx-4"><span
-                    class="bg-clip-text text-transparent bg-orange-400">Développeur Web Fullstack</span></h3>
+            <h3 class="text-4xl font-bold m-4 p-4 font-serif md:my-12 md:mx-4"><span
+                    class="bg-clip-text text-transparent bg-orange-500">Développeur Web</span></h3>
         </div>
     </div>
 
@@ -62,15 +62,15 @@
         <div class="scroll flex">
             <!-- TODO ajoute/suppression technos-->
             <div class="flex flex-wrap lg:flex-nowrap lg:justify-end py-6 items-center gap-x-4 md:gap-x-8 z-0">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/html-1.svg" alt="html">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/css-3.svg" alt="css">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/javascript-1.svg" alt="js">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/PHP-logo.svg" alt="php">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/bootstrap-5-1.svg" alt="bootstrap">
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/vue-9.svg" alt="vue">
-                <!-- <img class="max-h-12 w-auto mx-1 object-contain" src="./icons/techno/symfony.svg" alt="symfony"> -->
-                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/git-icon.svg" alt="git">
-                <!-- <img class="max-h-16 w-auto mx-1 object-contain" src="./icons/techno/docker-4.svg" alt="docker"> -->
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/html-1.svg" alt="logo html">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/css-3.svg" alt="logo css">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/javascript-1.svg" alt="lago javascript">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/PHP-logo.svg" alt="logo php">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/tailwindcss.png" alt="logo tailwindcss">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/vue-9.svg" alt="logo vue js">
+                <img class="max-h-12 w-auto mx-1 object-contain" src="./icons/techno/laravel.svg" alt="logo Laravel">
+                <img class="max-h-12 w-auto mx-1 p-1 object-contain" src="./icons/techno/git-icon.svg" alt="logo git">
+                <img class="max-h-16 w-auto mx-1 object-contain" src="./icons/techno/docker-4.svg" alt="logo docker">
             </div>
         </div>
     </section>
