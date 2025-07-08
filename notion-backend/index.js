@@ -34,6 +34,10 @@ app.get('/api/notion', async (req, res) => {
     res.status(500).json({ error: error.response?.data || error.message });
   }
 });
+app.get('/', (req, res) => {
+  res.send('✅ Backend Render en ligne !');
+});
+
 
 // Servir les fichiers frontend Vue.js (public)
 app.use(express.static(path.join(__dirname, 'public')));
