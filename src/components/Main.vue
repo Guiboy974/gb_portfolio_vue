@@ -70,7 +70,7 @@ const projects = ref([]);
 
 onMounted(async () => {
   try {
-    // Mets ici l’URL de ton backend, en local ou en production
+    // Récupération des données depuis l'API Notion
     const response = await fetch('https://gb-portfolio-vue.onrender.com/api/notion');
     const data = await response.json();
 
