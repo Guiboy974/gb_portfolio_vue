@@ -12,7 +12,7 @@ const notionToken = process.env.NOTION_TOKEN;
 if (!notionToken) {
   throw new Error('NOTION_TOKEN environment variable is not defined.');
 }
-const databaseId = process.enconst path = require('path');v.NOTION_DATABASE_ID;
+const databaseId = process.env.NOTION_DATABASE_ID;
 
 app.get('/api/notion', async (req, res) => {
   try {
