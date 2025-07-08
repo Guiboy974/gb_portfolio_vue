@@ -71,7 +71,7 @@ const projects = ref([]);
 onMounted(async () => {
   try {
     // Mets ici l’URL de ton backend, en local ou en production
-    const response = await fetch('http://localhost:3000/api/notion');
+    const response = await fetch('https://gb-portfolio-vue.onrender.com/api/notion');
     const data = await response.json();
 
 

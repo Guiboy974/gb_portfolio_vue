@@ -39,7 +39,7 @@ app.get('/api/notion', async (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route fallback (SPA Vue Router)
-app.get('*', (req, res) => {
+app.get(/^\/(?!api).*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
