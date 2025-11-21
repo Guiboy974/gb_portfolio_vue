@@ -71,7 +71,7 @@ const projects = ref([]);
 onMounted(async () => {
   try {
     // Récupération des données depuis l'API Notion
-    const response = await fetch('https://gb-portfolio-vue.onrender.com/api/notion');
+    const response = await fetch('https://gb-portfolio.fly.dev/api/notion');
     const data = await response.json();
 
 
