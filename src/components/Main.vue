@@ -33,6 +33,7 @@ Aujourd’hui, j’accompagne entreprises et particuliers dans la création de l
                         GitHub</a>
                     <p class="mt-1 text-center text-sm text-gray-500">{{ projets.techno }}</p>
                 </article>
+                
             </div>
 
             <!-- The Modal -->
@@ -75,7 +76,7 @@ onMounted(async () => {
     const data = await response.json();
 
 
-   // Adaptation de la structure Notion à tes propriétés Vue
+   // Adaptation de la structure Notion aux propriétés Vue
     projects.value = data.results.map(page => ({
         
       title:
@@ -97,6 +98,7 @@ onMounted(async () => {
           : "",
     }));
     console.log(projects.value);
+    console.log(projects.img);
   } catch (error) {
     console.error(error);
   }
