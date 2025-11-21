@@ -97,8 +97,7 @@ onMounted(async () => {
           ? page.properties.Techno.rich_text.map(r => r.plain_text).join(' ')
           : "",
     }));
-    console.log(projects.value);
-    console.log(projects.img);
+
   } catch (error) {
     console.error(error);
   }
