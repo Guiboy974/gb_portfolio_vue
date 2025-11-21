@@ -20,7 +20,7 @@ Aujourd’hui, j’accompagne entreprises et particuliers dans la création de l
         <h3
             class="text-xl font-semibold m-2 p-4 font-serif flex justify-center text-teal-100 hover:underline underline-offset-4 hover:font-bold hover:text-teal-200">
             Mes projets web</h3>
-        <article class="relative flex justify-center mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
+        <article class="relative flex flex-col items-center justify-center mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24"
             id="projects">
 
             <div v-for="(projets, index) in projects" :key="index"
