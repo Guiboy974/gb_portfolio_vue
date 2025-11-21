@@ -7,9 +7,9 @@
         <div class="mx-2 px-4 lg:mx-8 z-10 text-black">
             <p class="text-lg font-medium text-center"> Après plusieurs années dans l’armée de terre, j’ai choisi de suivre ma passion pour les nouvelles technologies et de me reconvertir dans le développement web. Curieux et motivé, j’ai retrouvé dans ce métier le goût du challenge et la satisfaction de résoudre des problèmes concrets.
 <br>
-Aujourd’hui, j’accompagne entreprises et particuliers dans la création de leurs outils numériques. Sérieux et impliqué, je mets mon expérience et ma rigueur au service de vos projets.
+Aujourd’hui, je souhaite gagner en expérience ainsi q'à monter en compétences c'est pourquoi je cherches une alternance en développement fullstack ou d'un emploi en tant que développeur web junior.
 <br>
-À la recherche d’un développeur motivé et investi ? Contactez-moi et concrétisons ensemble vos idées. </p>
+Disponible dès Janvier 2026, secteur Nancy-Metz-Luxembourg. </p>
 
 
         </div>
