@@ -9,7 +9,7 @@
 <br>
 Aujourd’hui, je souhaite gagner en expérience ainsi q'à monter en compétences c'est pourquoi je cherches une alternance en développement fullstack ou d'un emploi en tant que développeur web junior.
 <br>
-Disponible dès Janvier 2026, secteur Nancy-Metz-Luxembourg. </p>
+Disponible immédiatement, secteur Nancy-Metz-Luxembourg. </p>
 
 
         </div>
@@ -23,17 +23,18 @@ Disponible dès Janvier 2026, secteur Nancy-Metz-Luxembourg. </p>
         <article class="relative flex flex-col items-center justify-center mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-24"
             id="projects">
 
-            <div v-for="(projets, index) in projects" :key="index"
-                 class="projectElement grid grid-cols-1 gap-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 xl:gap-x-8">
-                <article class="group grid m-3">
-                    <img class="aspect-square w-xl rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-[7/8]"
-                        :src="projets.img" :alt="projets.title" @click="openModal(projets.img)" style="cursor:pointer">
-                    <h3 class="mt-4 text-center self-center text-lg font-medium text-gray-700">{{ projets.title }}</h3>
-                    <a class="mt-1 text-center text-lg text-gray-900 justify-self-center" :href="projets.link">lien
-                        GitHub</a>
-                    <p class="mt-1 text-center text-sm text-gray-500">{{ projets.techno }}</p>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-full">
+                <article v-for="(projets, index) in projects" :key="index" class="group flex flex-col">
+                    <div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-200">
+                        <img class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity cursor-pointer"
+                            :src="projets.img" :alt="projets.title" @click="openModal(projets.img)">
+                    </div>
+                    <h3 class="mt-4 text-center text-lg font-medium text-gray-700">{{ projets.title }}</h3>
+                    <a class="mt-2 text-center text-lg text-gray-900 hover:text-teal-500 transition-colors" :href="projets.link" target="_blank" rel="noopener noreferrer">
+                        Lien GitHub
+                    </a>
+                    <p class="mt-2 text-center text-sm text-gray-500">{{ projets.techno }}</p>
                 </article>
-                
             </div>
 
             <!-- The Modal -->
@@ -72,7 +73,10 @@ const projects = ref([]);
 onMounted(async () => {
   try {
     // Récupération des données depuis l'API Notion
-    const response = await fetch('https://gb-portfolio.fly.dev/api/notion');
+    const apiUrl = import.meta.env.DEV
+      ? 'http://localhost:3000/api/notion'
+      : 'https://gb-portfolio.fly.dev/api/notion';
+    const response = await fetch(apiUrl);
     const data = await response.json();
 
 
