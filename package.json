@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "vite build && mkdir -p dist/assets/images && cp -r public/images/* dist/assets/images/",
+    "preview": "vite preview",
+    "deploy": "npm run build && cp -r dist/* notion-backend/public/"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
