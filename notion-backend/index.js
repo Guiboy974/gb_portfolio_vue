@@ -9,19 +9,28 @@ app.use(cors());
 app.use(express.json());
 
 const notionToken = process.env.NOTION_TOKEN;
-if (!notionToken) {
-  throw new Error('NOTION_TOKEN environment variable is not defined.');
-}
 const databaseId = process.env.NOTION_DATABASE_ID;
-if (!databaseId) {
-  throw new Error('NOTION_DATABASE_ID environment variable is not defined.');
-}
 
 app.get('/api/notion', async (req, res) => {
   try {
+    // Vérifier que les variables sont définies
+    if (!notionToken) {
+      console.error('NOTION_TOKEN is not defined');
+      return res.status(500).json({
+        error: 'Server configuration error: NOTION_TOKEN is not defined'
+      });
+    }
+
+    if (!databaseId) {
+      console.error('NOTION_DATABASE_ID is not defined');
+      return res.status(500).json({
+        error: 'Server configuration error: NOTION_DATABASE_ID is not defined'
+      });
+    }
+
     const response = await axios.post(
       `https://api.notion.com/v1/databases/${databaseId}/query`,
-      {}, 
+      {},
       {
         headers: {
           'Authorization': `Bearer ${notionToken}`,
@@ -32,8 +41,8 @@ app.get('/api/notion', async (req, res) => {
     );
     res.json(response.data);
   } catch (error) {
-     // Affiche l’erreur brute
-    console.error(error.response?.data || error.message);
+     // Affiche l'erreur brute
+    console.error('Notion API error:', error.response?.data || error.message);
     res.status(500).json({ error: error.response?.data || error.message });
   }
 });

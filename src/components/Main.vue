@@ -77,8 +77,18 @@ onMounted(async () => {
       ? 'http://localhost:3000/api/notion'
       : 'https://gb-portfolio.fly.dev/api/notion';
     const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`API error: ${response.status}`);
+    }
+
     const data = await response.json();
 
+    // Vérifier que data.results existe
+    if (!data.results || !Array.isArray(data.results)) {
+      console.error('Invalid API response:', data);
+      return;
+    }
 
    // Adaptation de la structure Notion aux propriétés Vue
     projects.value = data.results.map(page => ({
