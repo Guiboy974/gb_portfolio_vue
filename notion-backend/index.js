@@ -13,6 +13,9 @@ if (!notionToken) {
   throw new Error('NOTION_TOKEN environment variable is not defined.');
 }
 const databaseId = process.env.NOTION_DATABASE_ID;
+if (!databaseId) {
+  throw new Error('NOTION_DATABASE_ID environment variable is not defined.');
+}
 
 app.get('/api/notion', async (req, res) => {
   try {
